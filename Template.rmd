@@ -5,8 +5,6 @@ date: "Data 2401"
 output: html_document
 ---
 
-MAKE SURE YOU READ AND FOLLOW **ALL** INSTRUCTIONS ON THE INSTRUCTION DOCUMENT. 
-
 ### Load packages
 
 ```{r load-packages, message=FALSE}
@@ -17,16 +15,15 @@ library(datasauRus)
 
 ### Exercise 1
 
-datasaurus_dozen is a dataset with...
+datasaurus_dozen is a data frame with...
 
 - 1846 rows
 - 3 columns (variables):
+  - dataset: indicates which dataset the data are from
   - x: x-values
   - y: y-values
 
 ### Exercise 2
-
-(The answers for this Exercise are given for you below. But you should clean up some of the narrative so that it only includes what you want to turn in.)
 
 First let's plot the data in the dino dataset:
 
@@ -43,6 +40,7 @@ And next calculate the correlation between `x` and `y` in this dataset:
 dino_data %>%
   summarize(r = cor(x, y))
 ```
+r = -0.0645
 
 ### Exercise 3
 

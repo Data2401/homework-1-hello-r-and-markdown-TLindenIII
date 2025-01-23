@@ -356,8 +356,6 @@ display: none;
 </div>
 
 
-<p>MAKE SURE YOU READ AND FOLLOW <strong>ALL</strong> INSTRUCTIONS ON
-THE INSTRUCTION DOCUMENT.</p>
 <div id="load-packages" class="section level3">
 <h3>Load packages</h3>
 <pre class="r"><code>library(tidyverse) 
@@ -365,11 +363,12 @@ library(datasauRus)</code></pre>
 </div>
 <div id="exercise-1" class="section level3">
 <h3>Exercise 1</h3>
-<p>datasaurus_dozen is a dataset with…</p>
+<p>datasaurus_dozen is a data frame with…</p>
 <ul>
 <li>1846 rows</li>
 <li>3 columns (variables):
 <ul>
+<li>dataset: indicates which dataset the data are from</li>
 <li>x: x-values</li>
 <li>y: y-values</li>
 </ul></li>
@@ -377,9 +376,6 @@ library(datasauRus)</code></pre>
 </div>
 <div id="exercise-2" class="section level3">
 <h3>Exercise 2</h3>
-<p>(The answers for this Exercise are given for you below. But you
-should clean up some of the narrative so that it only includes what you
-want to turn in.)</p>
 <p>First let’s plot the data in the dino dataset:</p>
 <pre class="r"><code>dino_data &lt;- datasaurus_dozen %&gt;%
   filter(dataset == &quot;dino&quot;)
@@ -394,6 +390,7 @@ ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
 ##         r
 ##     &lt;dbl&gt;
 ## 1 -0.0645</code></pre>
+<p>r = -0.0645</p>
 </div>
 <div id="exercise-3" class="section level3">
 <h3>Exercise 3</h3>
