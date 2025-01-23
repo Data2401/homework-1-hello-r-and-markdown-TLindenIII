@@ -38,7 +38,7 @@ And next calculate the correlation between `x` and `y` in this dataset:
 
 ```{r cor-dino}
 dino_data %>%
-  summarize(r = cor(x, y))
+  summarize(r_dino = cor(x, y))
 ```
 r_dino = -0.0645
 
@@ -57,26 +57,53 @@ And next calculate the correlation between x and y in this dataset:
 
 ```{r cor-star}
 star_data %>%
-  summarize(r = cor(x, y))
+  summarize(r_star = cor(x, y))
 ```
-r_star = -0.0630
 
-**Comparison**: r_dino is .0015 less than r_star.
+>**Comparison:**
+>
+| r_star | r_dino | difference |
+|:--------:|:------:|:----------:|
+|-0.0630|-0.0645|star is .0015 higher than dino|
 
 ### Exercise 4
 
-(Add code and narrative as needed. Note that two R chunks are given but they are not labeled. Use the convention from above to name them appropriately.)
+First let’s plot the data in the circle dataset:
 
-```{r}
-
-
-```
-
-```{r}
-
+```{r plot-circle}
+circle_data <- datasaurus_dozen %>%
+  filter(dataset == "circle")
+ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
+  geom_point()
 
 ```
+
+Let's check for unique values in the dataset column. When originally plotting with a filter of "circle", unexpectedly, a star was shown.
+
+- Fixed! When pasting code from Ex3 to Ex4, ggplot was given the argument data = star_data instead of circle_data.
+
+```{r check-variable-uniques}
+unique_values <- unique(datasaurus_dozen$dataset)
+
+# Print the unique values
+print(unique_values)
+```
+
+And next calculate the correlation between x and y in this dataset:
+
+```{r cor-circle}
+circle_data %>% 
+  summarise(r_circle = cor(x,y))
+```
+
+> **Comparison:**
+>
+| r_circle | r_dino | difference |
+|:--------:|:------:|:----------:|
+|-0.0683|-0.0645|circle is .0038 lower than dino|
+
 
 ### Exercise 5
 
 (Add code and narrative as needed. To add R chunks either type out the backticks, curly braces, and the letter `r` or use the Insert chunk button above, with the green +C.)
+
