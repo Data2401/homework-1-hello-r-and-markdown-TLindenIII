@@ -1,7 +1,7 @@
 ---
 title: "Hello R"
 author: "Thomas Linden"
-date: "Data 2401"
+date: "Data 2401 - `r Sys.Date()`"
 output: html_document
 ---
 
@@ -40,25 +40,28 @@ And next calculate the correlation between `x` and `y` in this dataset:
 dino_data %>%
   summarize(r = cor(x, y))
 ```
-r = -0.0645
+r_dino = -0.0645
 
 ### Exercise 3
 
-(Add code and narrative as needed. Note that the R chunks are labeled with `plot-star` and `cor-star` to provide spaces to place the code for plotting and calculating the correlation coefficient. To finish, remember to clean up the narrative by removing these instructions.)
-
-
+First let’s plot the data in the star dataset:
 
 ```{r plot-star}
-
-
+star_data <- datasaurus_dozen %>%
+  filter(dataset == "star")
+ggplot(data = star_data, mapping = aes(x = x, y = y)) +
+  geom_point()
 ```
 
-I'm some text, you should replace me with more meaningful text...
- 
+And next calculate the correlation between x and y in this dataset:
+
 ```{r cor-star}
-
-
+star_data %>%
+  summarize(r = cor(x, y))
 ```
+r_star = -0.0630
+
+**Comparison**: r_dino is .0015 less than r_star.
 
 ### Exercise 4
 
