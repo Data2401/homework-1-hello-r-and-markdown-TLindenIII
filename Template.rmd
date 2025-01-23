@@ -17,7 +17,12 @@ library(datasauRus)
 
 ### Exercise 1
 
-(Type your answer to Exercise 1 here. This exercise does not require any R code. **Remove notes like this in the final product that you turn in**)
+datasaurus_dozen is a dataset with...
+
+- 1846 rows
+- 3 columns (variables):
+  - x: x-values
+  - y: y-values
 
 ### Exercise 2
 
