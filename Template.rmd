@@ -2,7 +2,12 @@
 title: "Hello R"
 author: "Thomas Linden"
 date: "Data 2401 - `r Sys.Date()`"
-output: html_document
+output: 
+  html_document: 
+    fig_width: 5
+    highlight: zenburn
+    theme: paper
+    toc: true
 ---
 
 ### Load packages
@@ -27,7 +32,7 @@ datasaurus_dozen is a data frame with...
 
 First let's plot the data in the dino dataset:
 
-```{r plot-dino, fig.height=3, fig.width=6}
+```{r plot-dino, fig.height=5, fig.width=5}
 dino_data <- datasaurus_dozen %>%
   filter(dataset == "dino")
 ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
@@ -102,8 +107,27 @@ circle_data %>%
 |:--------:|:------:|:----------:|
 |-0.0683|-0.0645|circle is .0038 lower than dino|
 
-
 ### Exercise 5
 
-(Add code and narrative as needed. To add R chunks either type out the backticks, curly braces, and the letter `r` or use the Insert chunk button above, with the green +C.)
+Finally, let's plot all dataset at once.
+
+```{r plot-facet}
+ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset)) +
+         geom_point() +
+         facet_wrap(~ dataset, ncol = 3) +
+         theme(legend.position = "none")
+```
+
+Lets use the group_by function to generate all the summary  correlation coefficients.
+
+```{r cor-summary}
+datasaurus_dozen %>% 
+  group_by(dataset) %>% 
+  summarise(r = cor(x, y))
+```
+
+
+
+
+
 
